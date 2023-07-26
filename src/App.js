@@ -1,24 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Homepage from "./pages/Homepage";
+import PokemonDescriptionpage from "./pages/PokemonDescriptionpage";
+import PokemonListpage from "./pages/PokemonListpage";
+import Teampage from "./pages/Teampage";
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Homepage />} />
+        <Route path="/pokelist" element={<PokemonListpage />} />
+        <Route path="/pokeinfo" element={<PokemonDescriptionpage />} />
+        <Route path="/team" element={<Teampage />} />
+      </Routes>
+    </Router>
   );
 }
 
