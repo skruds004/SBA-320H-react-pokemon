@@ -1,24 +1,25 @@
 import {createSlice, createAsyncThunk} from "@reduxjs/toolkit";
 import axios from "axios";
 
+//offset limit for pagination
 const LIMIT = 50;
+//total number of pokemon
+const NUM_POKEMON = 1281;
 
 export const fetchPokemon = createAsyncThunk("pokemon/fetchPokemon", 
-      async (filters) => {
-            console.log(filters);
-            if(filters) {
-                  let url = "https://pokeapi.co/api/v2/"
-                  if(filters.type) {
-                        url += "type/" + filters.type;
-                  }
-                  else {
-                        url += "pokemon";
-                  }
-            }
+      async () => {
             const response = await axios.get(`https://pokeapi.co/api/v2/pokemon?limit=${LIMIT}`);
             console.log(response.data);
             return response.data;
       }
+);
+
+export const fetchAllPokemon = createAsyncThunk("pokemon/fetchAllPokemon", 
+async () => {
+      const response = await axios.get(`https://pokeapi.co/api/v2/pokemon?limit=${NUM_POKEMON}`);
+      console.log(response.data);
+      return response.data;
+}
 );
 
 export const fetchPokemonFiltered = createAsyncThunk("pokemon/fetchPokemonFiltered",

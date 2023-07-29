@@ -2,6 +2,8 @@ import React, {useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams, useLocation } from 'react-router-dom';
 import { addToTeam, fetchPokemon, removeFromTeam } from '../features/pokemonSlice';
+import PokemonCard from '../components/PokemonCard';
+import TeamMenu from '../components/TeamMenu';
 
 export default function PokemonListpage() {
   const location = useLocation();
@@ -24,15 +26,24 @@ export default function PokemonListpage() {
   }
 
   return (
-    <div>
-      {pokemon.map(pokemon => (
+    <div className='main-container'>
+      <TeamMenu />
+      <div className='card-container'>
+        {pokemon.map(pokemon => (
 
-        <div key={pokemon.name}>
-          <h3>{pokemon.name.charAt(0).toUpperCase()}{pokemon.name.slice(1)}</h3>
-          <button>+</button>
-        </div>
-        
-      ))}
+          <PokemonCard 
+            pokemon={pokemon}
+          />
+          /* <div className="" key={pokemon.name}>
+            <h3>{pokemon.name.charAt(0).toUpperCase()}{pokemon.name.slice(1)}</h3>
+            <img src={"https://img.pokemondb.net/artwork/large/" + pokemon.name + ".jpg"}></img>
+            <button>+</button>
+          </div> */
+          
+        ))}
+        <button className='previous'>Previous Page</button>
+        <button className='next'>Next Page</button>
+      </div>
     </div>
   )
 }
