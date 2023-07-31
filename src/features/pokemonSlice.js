@@ -65,11 +65,16 @@ const pokemonSlice = createSlice({
                   state.pokemonData = action.payload;
             },
             addToTeam: (state, action) => {
-                  if(state.team.length <= 5) { 
+                  //check if you already have that pokemon
+                  //official pokemon team building rules state that you may not have multiple of the same pokemon
+                  const index = state.team.findIndex(
+                        (poke) => poke.name === action.payload.name
+                  );
+                  if(state.team.length <= 5 && index == -1) { 
                         state.team.push(action.payload);
                   } 
                   else {
-                        alert("You may only have up to 6 members in your team.");
+                        alert("You may only have up to 6 members in your team, and no duplicates.");
                   }
             },
             removeFromTeam: (state, action) => {

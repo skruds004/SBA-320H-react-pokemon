@@ -17,16 +17,27 @@ export default function TeamMenu() {
   } else if (status === "failed") {
     return <div className='team-container'>Error Loading Pokemon</div>;
   } else {
-    return (
-      <div className='team-container'>
-        <h1>Your Team</h1>
-        {team.map((pokemon, index) =>
-          <TeamCard
-            key={index}
-            pokemon={pokemon}
-          />
-        )}
-      </div>
-    )
+    //render team if there are pokemon in it
+    if(team.length != 0) {
+      return (
+        <div className='team-container'>
+          <h1>Your Team</h1>
+          {team.map((pokemon, index) =>
+            <TeamCard
+              key={index}
+              pokemon={pokemon}
+            />
+          )}
+        </div>
+      )
+    }
+    //if no pokemon in team give user advice on how to start
+    else {
+      return (
+        <div className='team-container'>
+          <h1>Click + to Add to Team</h1>
+        </div>
+      )
+    }
   }
 }

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useCallback, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom'
 import { fetchPokemonByName } from '../features/pokemonSlice';
@@ -13,10 +13,14 @@ export default function PokemonDescriptionpage() {
   const status = useSelector((state) => state.pokemon.status);
 
   
-  
   useEffect(() => {
     dispatch(fetchPokemonByName(pokemon.name));
   }, []);
+
+  useCallback(() => {
+    dispatch(fetchPokemonByName(pokemon.name));
+    console.log('fetching');
+  }, [pokemon]);
 
   if (status === "loading") {
     return <div>Loading...</div>;

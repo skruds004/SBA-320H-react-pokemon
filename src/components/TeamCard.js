@@ -22,9 +22,6 @@ export default function TeamCard({pokemon}) {
   let truncatedName = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
   truncatedName = truncatedName.split('-')[0];
 
-
-  //const pokemonData = useSelector((state) => state.pokemon.pokemonData);
-
   return (
     <div className="team-card" key={pokemon.name}>
       {/* <div className='pokedex-circle'></div> */}
@@ -34,7 +31,7 @@ export default function TeamCard({pokemon}) {
       </div>
       <Link to={"/pokeinfo/" + pokemon.name} onClick={() =>
       {
-        dispatch(setPokemon(pokemon));
+        dispatch(fetchPokemonByName(pokemon.name));
       }}>Pokemon Info</Link>
       <button className="add-button" onClick={() => {
         dispatch(removeFromTeam(pokemon))}}>
