@@ -28,6 +28,8 @@ img {
   height: 100%;
   min-width: 200px;
   padding: 20px;
+  color:#fff279;
+  text-align: center;
 }
 
 .card-container {
@@ -76,8 +78,12 @@ img {
   font-weight: bold;
 }
 
-.pokemon-card a:active, a:hover {
+a:active, a:hover {
   color: #761a1a;
+}
+
+.team-card a:active, .team-card a:hover {
+  color:#c13131;
 }
 
 .add-button {
@@ -100,8 +106,10 @@ img {
 }
 
 .team-card {
+  position: relative;
   margin: 10px;
   width: 200px;
+  right: 12px;
   background-color: #761a1a;
   border: 3px solid #fff279;
   border-radius: 10px;
@@ -192,9 +200,14 @@ img {
   font-size: 24px;
   text-align: center;
   font-weight: bold;
+}
+
+li a {
   text-decoration: none;
+  color:#fff279;
 }
 
 .nav li:first-child {
   flex-basis: 217px;
+  font-size: 32px;
 } 

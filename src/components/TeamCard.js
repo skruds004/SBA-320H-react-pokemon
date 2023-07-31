@@ -18,13 +18,18 @@ export default function TeamCard({pokemon}) {
   pokemon_url.pop();
   const pokemon_id = pokemon_url.pop();
 
-  const pokemonData = useSelector((state) => state.pokemon.pokemonData);
+  //truncating the name for styling purposes
+  let truncatedName = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
+  truncatedName = truncatedName.split('-')[0];
+
+
+  //const pokemonData = useSelector((state) => state.pokemon.pokemonData);
 
   return (
     <div className="team-card" key={pokemon.name}>
       {/* <div className='pokedex-circle'></div> */}
       <div className='team-card-title-container'>
-      <h3 className='team-card-title'>{pokemon.name.charAt(0).toUpperCase()}{pokemon.name.slice(1)}</h3>
+      <h3 className='team-card-title'>{truncatedName}</h3>
       <img src={"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"+ pokemon_id + ".png"} alt="No Image"></img>
       </div>
       <Link to={"/pokeinfo/" + pokemon.name} onClick={() =>

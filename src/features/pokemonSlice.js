@@ -65,7 +65,12 @@ const pokemonSlice = createSlice({
                   state.pokemonData = action.payload;
             },
             addToTeam: (state, action) => {
-                  state.team.push(action.payload);
+                  if(state.team.length <= 5) { 
+                        state.team.push(action.payload);
+                  } 
+                  else {
+                        alert("You may only have up to 6 members in your team.");
+                  }
             },
             removeFromTeam: (state, action) => {
                   const index = state.team.findIndex(

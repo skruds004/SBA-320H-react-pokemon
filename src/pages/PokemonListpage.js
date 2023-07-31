@@ -40,7 +40,11 @@ export default function PokemonListpage() {
         </div>
       </div>);
   } else if (status === "failed") {
-    return <div>Error Loading Pokemon</div>;
+    return (
+    <div>
+      <NavBar />
+      <h1>Error Loading Pokemon</h1>
+    </div>);
   } else {
     return (
       <div>
