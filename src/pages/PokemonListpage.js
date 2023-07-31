@@ -4,6 +4,8 @@ import { fetchPokemon } from '../features/pokemonSlice';
 import PokemonCard from '../components/PokemonCard';
 import TeamMenu from '../components/TeamMenu';
 import {LIMIT, NUM_POKEMON} from '../features/pokemonSlice';
+import Spinner from '../components/Spinner';
+import NavBar from '../components/NavBar';
 
 export default function PokemonListpage() {
   const [offset, setOffset] = useState(0);
@@ -27,12 +29,22 @@ export default function PokemonListpage() {
   }, [offset]);
 
   if (status === "loading") {
-    return <div>Loading...</div>;
+    return (
+      <div>
+        <NavBar />
+        <div className='main-container'>
+          <TeamMenu />
+          <div>
+            <Spinner />
+          </div>
+        </div>
+      </div>);
   } else if (status === "failed") {
-    return <div>Error loading products</div>;
+    return <div>Error Loading Pokemon</div>;
   } else {
     return (
       <div>
+        <NavBar />
         <div className='main-container'>
           <TeamMenu />
           <div>

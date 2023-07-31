@@ -69,7 +69,7 @@ const pokemonSlice = createSlice({
             },
             removeFromTeam: (state, action) => {
                   const index = state.team.findIndex(
-                        (poke) => poke.id === action.payload.id
+                        (poke) => poke.name === action.payload.name
                   );
                   if (index !== -1) {
                         state.team.splice(index, 1);

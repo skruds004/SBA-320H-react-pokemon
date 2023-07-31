@@ -7,17 +7,26 @@ import PokemonCard from './PokemonCard';
 export default function TeamMenu() {
   
   const team = useSelector((state) => state.pokemon.team);
+  const status = useSelector((state) => state.pokemon.status);
   console.log(team);
 
-  return (
-    <div className='team-container'>
-      <h1>The Team</h1>
-      {team.map((pokemon, index) =>
-        <TeamCard
-          key={index}
-          pokemon={pokemon}
-        />
-      )}
-    </div>
-  )
+  if (status === "loading") {
+    return (<div className='team-container'>
+      <h1>Your Team</h1>
+    </div>);
+  } else if (status === "failed") {
+    return <div className='team-container'>Error Loading Pokemon</div>;
+  } else {
+    return (
+      <div className='team-container'>
+        <h1>Your Team</h1>
+        {team.map((pokemon, index) =>
+          <TeamCard
+            key={index}
+            pokemon={pokemon}
+          />
+        )}
+      </div>
+    )
+  }
 }

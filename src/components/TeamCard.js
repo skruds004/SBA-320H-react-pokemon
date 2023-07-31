@@ -25,7 +25,7 @@ export default function TeamCard({pokemon}) {
       {/* <div className='pokedex-circle'></div> */}
       <div className='team-card-title-container'>
       <h3 className='team-card-title'>{pokemon.name.charAt(0).toUpperCase()}{pokemon.name.slice(1)}</h3>
-      <img src={"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"+ pokemon_id + ".png"} alt={pokemon.name + " is not registered on this pokedex"}></img>
+      <img src={"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"+ pokemon_id + ".png"} alt="No Image"></img>
       </div>
       <Link to={"/pokeinfo/" + pokemon.name} onClick={() =>
       {

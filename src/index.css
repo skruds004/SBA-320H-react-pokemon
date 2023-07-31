@@ -33,11 +33,10 @@ img {
 .card-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
 }
 
 .pokemon-card {
-  margin: 10px;
+  margin: 10px 20px;
   width: 200px;
   background-color: #c13131;
   border: 3px solid #761a1a;
@@ -120,6 +119,7 @@ img {
   height: 80px;
   margin: 0px;
   padding: 0px;
+  color: #fff279;
 }
 
 .team-card-title-container {
@@ -152,18 +152,49 @@ img {
   font-size: 20px;
 }
 
-.first-color {
-  background: #761a1a;
+.spinner-container {
+  text-align: center;
+  position: absolute;
+  top: 25vh;
+  left: 90vh;
 }
 
-.second-color {
-  background: #c13131;
+.spinner {
+  animation: spin 1s linear infinite;
 }
 
-.third-color {
-  background: #a7cd78;
+
+@keyframes spin {
+  from {
+      transform:rotate(360deg);
+  }
+  to {
+      transform:rotate(0deg);
+  }
 }
 
-.fourth-color {
-  background: #fff279;
+.nav {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: #c13131;
+  color:#fff279;
+  border: 3px solid #761a1a;
+  border-top: 0px;
+  border-right: 0px;
 }
+
+.nav li {
+  padding: 10px;
+  border-right: 3px solid #761a1a;
+  flex-basis: 30vh;
+  font-size: 24px;
+  text-align: center;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.nav li:first-child {
+  flex-basis: 217px;
+} 
