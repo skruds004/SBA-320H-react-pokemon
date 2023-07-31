@@ -5,9 +5,6 @@ function Homepage() {
   return (
     <div>
       <Link 
-        //to="/pokelist"
-        //state= {{type: 3}}
-        //to={{pathname:"/pokelist", type: 3}}
         to={"/pokelist"}
         state={{type: "3"}}
       >

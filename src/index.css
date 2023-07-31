@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #a7cd78;
 }
 
 code {
@@ -13,20 +14,156 @@ code {
 }
 
 img {
-  width: 20px;
-  height: 20px;
+  width: 80%;
 }
 
 .main-container {
   display: flex;
+  height: 100vh;
 }
 
 .team-container {
-  flex-grow: 1;
-  background-color: darkgray;
+  background-color: #c13131;
+  border-right: 3px solid #761a1a;
+  height: 100%;
+  min-width: 200px;
+  padding: 20px;
 }
 
 .card-container {
-  flex-grow: 7;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.pokemon-card {
+  margin: 10px;
+  width: 200px;
+  background-color: #c13131;
+  border: 3px solid #761a1a;
+  border-radius: 10px;
+  color: #fff279;
+  text-align: center;
+}
+
+.pokedex-circle {
+  width: 20px;
+  height: 20px;
   background-color: aqua;
+}
+
+.image-container {
+  width: 150px;
+  height: 150px;
+  background-color: white;
+  border: 5px solid #761a1a;
+  border-radius: 20px;
+  margin: auto;
+  padding: 10px;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  font-size: 14px;
+  text-align: center;
+  color: black;
+  object-fit: contain;
+}
+
+.pokemon-card a,.team-card a {
+  color: #fff279;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.pokemon-card a:active, a:hover {
+  color: #761a1a;
+}
+
+.add-button {
+  margin-left: 45px;
+  margin: 10px 0px 15px 40px;
+  background-color: #761a1a;
+  border: 3px solid #fff279;
+  border-radius: 40%;
+  color: #fff279;
+  font-size: 20px;
+}
+
+.add-button:hover {
+  background-color: #c13131;
+}
+
+.add-button:active {
+  background-color: #fff279;
+  color: #761a1a;
+}
+
+.team-card {
+  margin: 10px;
+  width: 200px;
+  background-color: #761a1a;
+  border: 3px solid #fff279;
+  border-radius: 10px;
+  color: #fff279;
+  text-align: center;
+}
+
+.team-card .image-container {
+  border: 5px solid #fff279;
+}
+
+.team-card img {
+  display: inline;
+  width: 80px;
+  height: 80px;
+  margin: 0px;
+  padding: 0px;
+}
+
+.team-card-title-container {
+  padding-right: 5px;
+  padding-top: 2px;
+  display: flex;
+  justify-content:space-between;
+  margin-bottom: -10px;
+}
+
+.team-card-title {
+  position: relative;
+  margin-left: 10px;
+  text-align: left;
+}
+
+
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.page-button {
+  border: 5px solid #761a1a;
+  background-color: #c13131;
+  color: #fff279;
+  border-radius: 10%;
+  margin: 10px;
+  padding: 10px;
+  font-size: 20px;
+}
+
+.first-color {
+  background: #761a1a;
+}
+
+.second-color {
+  background: #c13131;
+}
+
+.third-color {
+  background: #a7cd78;
+}
+
+.fourth-color {
+  background: #fff279;
 }
