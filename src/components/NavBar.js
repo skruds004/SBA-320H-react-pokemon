@@ -6,10 +6,10 @@ export default function NavBar() {
     <div>
         <ul className='nav'>
             <li>Poke-Team</li>
-            <li><Link>Home</Link></li>
-            <li><Link>Pokemon</Link></li>
-            <li><Link>Search</Link></li>
-            <li><Link>Your Team</Link></li>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/pokelist">Pokemon</Link></li>
+            <li><Link to="/pokesearch">Search</Link></li>
+            <li><Link to="/team">Your Team</Link></li>
         </ul>
     </div>
   )

@@ -25,20 +25,18 @@ export const fetchAllPokemon = createAsyncThunk("pokemon/fetchAllPokemon",
 );
 
 export const fetchPokemonFiltered = createAsyncThunk("pokemon/fetchPokemonFiltered",
-      async (filters) => {
+      async (filter) => {
             let url = "https://pokeapi.co/api/v2/"
-            console.log(filters);
-            if(filters) {
-                  if(filters.type) {
-                        url += "type/" + filters.type;
-                  }
+            console.log(filter);
+            if(filter) { 
+                  url += "type/" + filter;
             }
             else {
                   url += "pokemon";
             }
             const response = await axios.get(url);
-            console.log(response.data);
-            return response.data;
+            console.log(response.data.pokemon);
+            return response.data.pokemon;
       }
 );
 
@@ -115,7 +113,7 @@ const pokemonSlice = createSlice({
                   })
                   .addCase(fetchPokemonFiltered.fulfilled, (state, action) => {
                         state.status = "succeeded";
-                        state.pokemon = action.payload.results;
+                        state.pokemon = action.payload;
                   })
                   .addCase(fetchPokemonFiltered.rejected, (state, action) => {
                         state.status = "failed";

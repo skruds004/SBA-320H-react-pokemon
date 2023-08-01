@@ -8,7 +8,6 @@ export default function TeamMenu() {
   
   const team = useSelector((state) => state.pokemon.team);
   const status = useSelector((state) => state.pokemon.status);
-  console.log(team);
 
   if (status === "loading") {
     return (<div className='team-container'>
