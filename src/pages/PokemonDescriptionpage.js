@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom'
-import { fetchPokemonByName } from '../features/pokemonSlice';
+import { addToTeam, fetchPokemonByName } from '../features/pokemonSlice';
 import { useState } from 'react';
 import TeamMenu from '../components/TeamMenu';
 import NavBar from '../components/NavBar';
@@ -22,7 +22,6 @@ export default function PokemonDescriptionpage() {
     dispatch(fetchPokemonByName(pokemon.name));
   }, [pokemon]);
 
-  console.log(pokemon);
   const pokeName = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
 
   if (status === "loading") {
@@ -37,7 +36,8 @@ export default function PokemonDescriptionpage() {
           <TeamMenu />
           <div>
             <div className='info-container'>
-            <img src={"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + pokemon.id + ".png"} alt="hmm"></img>
+            <img src={"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + pokemon.id + ".png"}
+             alt={pokeName + "'s image is not registered in this pokedex"}></img>
             <h1>{pokeName}</h1>
             <h3>Types: 
             {pokemon.types.map(type => {

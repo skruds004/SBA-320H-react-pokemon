@@ -20,7 +20,6 @@ export default function PokemonSearchpage() {
 
     const [searchType, setSearchType] = useState("none");
     const [firstType, setFirstType] = useState(TYPES[0]);
-    // const [secondType, setSecondType] = useState("any");
     const [searchQuery, setSearchQuery] = useState("bulbasaur");
 
     useEffect(() => {
@@ -35,11 +34,6 @@ export default function PokemonSearchpage() {
         console.log(event.target.value);
         setFirstType(event.target.value);
     }
-
-    // const handleSecondTypeChange = (event) => {
-    //     console.log(event.target.value);
-    //     setSecondType(event.target.value);
-    // }
 
     const handleInputChange = (event) => {
         console.log(event.target.value);
@@ -119,26 +113,19 @@ export default function PokemonSearchpage() {
                 <div className='main-container'>
                     <TeamMenu />
                     <div>
-                        <label htmlFor="first-type">Type</label>
-                        <select value={firstType} name="first-type" id="first-type" onChange={handleFirstTypeChange}>
-                            {TYPES.map((type, index) => {
-                                return (<option key={index} value={type}>{type}</option>);
-                            })}
-                        </select>
-                        {/* <label htmlFor="second-type">Second Type</label>
-                        <select value={secondType} name="second-type" id="second-type" onChange={handleSecondTypeChange}>
-                            <option value="any">any</option>
-                            <option value="none">none</option>
-                            {TYPES.map((type, index) => {
-                                return (<option key={index} value={type}>{type}</option>);
-                            })}
-                        </select> */}
-                        <button className='search-page-button' type="button" value="type" onClick={changeSearchType}>Search</button>
-                        <label htmlFor="search">Search By Name</label>
-                        <input type="text" name="search" id="search" placeholder="Enter Pokemon Name"
-                        onChange={handleInputChange}></input>
-                        <button className='search-page-button' type="button" value="search" onClick={changeSearchType}>Search</button>
-                        <br/>
+                        <div className='search-container'>
+                            <label htmlFor="first-type">Search By Type:</label>
+                            <select value={firstType} name="first-type" id="first-type" onChange={handleFirstTypeChange}>
+                                {TYPES.map((type, index) => {
+                                    return (<option key={index} value={type}>{type}</option>);
+                                })}
+                            </select>
+                            <button className='search-page-button' type="button" value="type" onClick={changeSearchType}>Search</button>
+                            <label htmlFor="search">Search By Name:</label>
+                            <input type="text" name="search" id="search" placeholder="Enter Pokemon Name"
+                            onChange={handleInputChange}></input>
+                            <button className='search-page-button' type="button" value="search" onClick={changeSearchType}>Search</button>
+                        </div>
                         {renderCards()}
                     </div>
                 </div>

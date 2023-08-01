@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Poke-Team",
+  "name": "SBA-320H Pokemon React/Redux App",
   "icons": [
     {
       "src": "favicon.ico",

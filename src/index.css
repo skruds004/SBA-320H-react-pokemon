@@ -162,8 +162,13 @@ a:active, a:hover {
   font-size: 20px;
 }
 
+.page-button:hover {
+  color:#761a1a;
+}
+
 .page-button:active {
   background-color: #761a1a;
+  color:#fff279;
 }
 
 .spinner-container {
@@ -253,7 +258,9 @@ li a {
   height: 200px;
   font-size: 14px;
   text-align: center;
-  color: black;
+  color: #fff279;
+  font-size: 16px;
+  font-weight: bold;
 }
 
 .stat-block {
@@ -283,4 +290,46 @@ td:first-child {
 
 h4 {
   margin: 0 auto;
+}
+
+.search-container {
+  padding: 5px;
+  color: #fff279;
+  font-size: 20px;
+  background-color: #c13131;
+  border: 3px solid #761a1a;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.search-container * {
+  margin-right: 10px;
+}
+
+select, input {
+  background-color: #761a1a;
+  color:#fff279;
+  border: 2px solid #fff279;
+  border-radius: 3px;
+  padding: 3px;
+}
+
+::placeholder {
+  color:#c5dbd2;
+}
+
+.search-page-button {
+  background-color: #761a1a;
+  color:#fff279;
+  border: 2px solid #fff279;
+  border-radius: 3px;
+}
+
+.search-page-button:hover {
+  background-color: #c13131;
+}
+
+.search-page-button:active {
+  background-color: #fff279;
+  color:#761a1a;
 }
