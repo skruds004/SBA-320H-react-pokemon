@@ -29,6 +29,7 @@ export default function PokemonCard({pokemon}) {
       <Link to={"/pokeinfo/" + pokemon.name} /*state={{poke: pokemon}}*/ onClick={() =>
       {
         dispatch(setPokemon(pokemon));
+        dispatch(fetchPokemonByName(pokemon.name));
       }}>Pokemon Info</Link>
       <button className="add-button" onClick={() => {
         //dispatch(setPokemon(pokemon));

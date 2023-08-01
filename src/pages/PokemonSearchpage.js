@@ -20,7 +20,7 @@ export default function PokemonSearchpage() {
 
     const [searchType, setSearchType] = useState("none");
     const [firstType, setFirstType] = useState(TYPES[0]);
-    const [secondType, setSecondType] = useState("any");
+    // const [secondType, setSecondType] = useState("any");
     const [searchQuery, setSearchQuery] = useState("bulbasaur");
 
     useEffect(() => {
@@ -36,10 +36,10 @@ export default function PokemonSearchpage() {
         setFirstType(event.target.value);
     }
 
-    const handleSecondTypeChange = (event) => {
-        console.log(event.target.value);
-        setSecondType(event.target.value);
-    }
+    // const handleSecondTypeChange = (event) => {
+    //     console.log(event.target.value);
+    //     setSecondType(event.target.value);
+    // }
 
     const handleInputChange = (event) => {
         console.log(event.target.value);
@@ -85,7 +85,7 @@ export default function PokemonSearchpage() {
         else {
             return (
                 <div className='card-container'>
-                    <h1>Search for something</h1>
+                    <h1 className='text-with-background'>Enter a Search Query and Start Catching Pokemon!</h1>
                 </div>
             )
         }
