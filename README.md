@@ -1,70 +1,47 @@
-# Getting Started with Create React App
+Netlify Link
+https://skruds004-poke-teams.netlify.app/
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Technologies Used
+React was used to create this application, using components to display data and state management to update components
+Redux was used to centralize the state management of the application and common actions like addToTeam and removeFromTeam are reducers
+Thunk Middleware is used to fetch data from the Poke-API into the store
 
-## Available Scripts
+Most of the pokemon related logic goes through the Redux store. The state for the team and all the fetched pokemon are stored in this store.
+The store also keeps track of whether fetching is loading, fulfilled or rejected and this is used to determine what is rendered on most pages
 
-In the project directory, you can run:
+On most pages there is both the Navbar and the TeamMenu
+The Navbar is used simply with a React Router to navigate the site
+The TeamMenu keeps track of the Pokemon you have added to your team on the side of the screen
 
-### `npm start`
+The Main Pokemon Page lists all pokemon from the API, and uses pagination to keep it from filling up the screen too much.
+The page is populated with "Pokemon Cards" which represent the pokemon that are fetched from the API. Because the API only sends
+a name and a URL for plural Pokemon fetches, each card links to the Description Page, which renders all of the data of a single Pokemon
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The Description Page uses the name of a Pokemon on either a PokemonCard or a TeamCard to fetch, then render a fair amount of information
+about a single Pokemon. 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Lastly is the search page which is similar in function to the main pokemon page, but uses a select dropdown as well as an input field
+to search for Pokemon in a couple of different ways. You can either search by type (which displays all Pokemon of a certain Pokemon type
+ie. Poison, Normal, Psychic, etc...) or you can search by a search query. This will update when you change data in the input field and
+display all the cards with names that include your query (this way you don't have to match things exactly)
 
-### `npm test`
+Every Pokemon Card has an add button to add the Pokemon to your team (with 2 restrictions which are no duplicates and your team can't be
+larger than 6 Pokemon)
+Every Team Card has a remove button to remove that Pokemon from your team
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Features To Be Implemented:
+1. A Team Page which displays the basic descriptions of each of your Pokemon
+    - Additionally add some calculations to tell user what their team may need (type coverage, more attack, more defense, etc...)
+2. Clean up the search page
+    - Add Pagination to results
+    - Instead of search buttons have a toggle search type button that renders the input field/dropdown based on the toggle value
+    - More ways to search (By ability, second type search, generation) this is harder without making a lot of API calls and there
+      may not be an efficient way to do this with Poke-API
+3. Use Localstorage to save team data and single pokemon data for descrption pages
+4. Be able to add held items to and change certain properties of your team Pokemon (shiny toggle, ability selection)
+5. Have description page still load description when refreshed, and put an addToTeam button on the description page
+6. Possibly mess with the site styling (It has a bit of a ketchup and mustard sort of look)
+7. Style the Pokemon Cards to look more like a pokedex (original plan)
+8. Don't have another 3 day power outage (very important)
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

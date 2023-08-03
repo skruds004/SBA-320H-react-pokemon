@@ -13,13 +13,6 @@ export default function PokemonListpage() {
   const pokemon = useSelector((state) => state.pokemon.pokemon);
   const status = useSelector((state) => state.pokemon.status);
 
-  // useEffect(() => {
-  //   //on initial state (idle) will call fetchpokemon
-  //   if (status === "idle") {
-  //     dispatch(fetchPokemon(0));
-  //   }
-  // }, [status, dispatch]);
-
   useEffect(() => {
       dispatch(fetchPokemon(0));
   }, [dispatch]);
