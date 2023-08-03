@@ -1,33 +1,53 @@
 import React, { useCallback, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { useLocation } from 'react-router-dom'
-import { addToTeam, fetchPokemonByName } from '../features/pokemonSlice';
-import { useState } from 'react';
+import {fetchPokemonByName } from '../features/pokemonSlice';
 import TeamMenu from '../components/TeamMenu';
 import NavBar from '../components/NavBar';
+import Spinner from '../components/Spinner';
 
 
 
 export default function PokemonDescriptionpage() {
+  
   const dispatch = useDispatch();
   const pokemon = useSelector((state) => state.pokemon.pokemonData);
   const status = useSelector((state) => state.pokemon.status);
 
-  
   useEffect(() => {
-    dispatch(fetchPokemonByName(pokemon.name));
-  }, []);
+    if(pokemon) {
+      dispatch(fetchPokemonByName(pokemon.name));
+    }
+  }, [dispatch]);
 
   useCallback(() => {
-    dispatch(fetchPokemonByName(pokemon.name));
-  }, [pokemon]);
+    if(pokemon) {
+      dispatch(fetchPokemonByName(pokemon.name));
+    }
+  }, [dispatch, pokemon]);
 
-  const pokeName = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
+  const pokeName = pokemon?.name.charAt(0).toUpperCase() + pokemon?.name.slice(1);
 
   if (status === "loading") {
-    return <div>Loading...</div>;
-  } else if (status === "failed") {
-    return <div>Error loading products</div>;
+    return (
+      <div>
+        <NavBar />
+        <div className='main-container'>
+          <TeamMenu />
+          <div>
+            <Spinner />
+          </div>
+        </div>
+      </div>);
+  } else if (status === "failed" || status === "idle") {
+    return  (
+      <div>
+        <NavBar />
+        <div className='main-container'>
+          <TeamMenu />
+          <h1 className='error'>Error loading Pokemon</h1>
+        </div>
+        
+      </div>);
   } else {
     return (
       <div>
@@ -40,7 +60,7 @@ export default function PokemonDescriptionpage() {
              alt={pokeName + "'s image is not registered in this pokedex"}></img>
             <h1>{pokeName}</h1>
             <h3>Types: 
-            {pokemon.types.map(type => {
+            {pokemon?.types.map(type => {
               return (
                 <span> {type.type.name.charAt(0).toUpperCase()}{type.type.name.slice(1)}</span>
               );

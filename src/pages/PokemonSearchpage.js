@@ -20,32 +20,33 @@ export default function PokemonSearchpage() {
 
     const [searchType, setSearchType] = useState("none");
     const [firstType, setFirstType] = useState(TYPES[0]);
-    const [searchQuery, setSearchQuery] = useState("bulbasaur");
+    const [searchQuery, setSearchQuery] = useState("");
 
+    //fetches a different set of pokemon depending on the search type
     useEffect(() => {
         if(searchType === "type") {
             dispatch(fetchPokemonFiltered(firstType));
         } else if(searchType === "search") {
             dispatch(fetchAllPokemon());
         }
-    }, [searchType, firstType]);
+    }, [dispatch, searchType, firstType]);
 
+
+    //Functions for handling changes in the search elements
     const handleFirstTypeChange = (event) => {
-        console.log(event.target.value);
         setFirstType(event.target.value);
     }
-
     const handleInputChange = (event) => {
-        console.log(event.target.value);
         setSearchQuery(event.target.value);
     }
 
+    //Function for changing the search type to load differet data
     const changeSearchType = (event) => {
-        console.log(event.target.value);
         setSearchType("none");
         setSearchType(event.target.value);
     }
 
+    //conditional rendering based on the search type
     const renderCards = () => {
         if(searchType === "type") {  
             return (<div className='card-container'>
@@ -63,8 +64,7 @@ export default function PokemonSearchpage() {
         } else if (searchType === "search" && searchQuery.length > 0) {
             return (<div className='card-container'>
             {pokemon.map((pokemon,index) => {
-                console.log(pokemon);
-                console.log(searchQuery);
+                //filters out pokemon based on the search query
                 if(pokemon.name?.includes(searchQuery)) {
                     return (
                         <PokemonCard
@@ -76,6 +76,7 @@ export default function PokemonSearchpage() {
             })}
             </div>);
         }
+        //condition for no search type or an empty searchQuery string
         else {
             return (
                 <div className='card-container'>
@@ -96,17 +97,16 @@ export default function PokemonSearchpage() {
             </div>
         );
     } else if (status === 'failed') {
-        return (
+        return  (
             <div>
-                <NavBar />
-                <div className='main-container'>
-                    <TeamMenu />
-                    <h1>Error Catching Pokemon</h1>
-                </div>
-            </div>
-        );
+              <NavBar />
+              <div className='main-container'>
+                <TeamMenu />
+                <h1 className='error'>Error loading Pokemon</h1>
+              </div> 
+            </div>);
     //primary working page
-    } else if (status === 'succeeded') {
+    } else {
         return (
             <div>
                 <NavBar />

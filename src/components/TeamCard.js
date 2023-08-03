@@ -1,22 +1,19 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react'
+import { useDispatch } from 'react-redux';
 import { Link} from 'react-router-dom'
 import { fetchPokemonByName, removeFromTeam, setPokemon } from '../features/pokemonSlice';
-import { useState } from 'react';
-import TeamMenu from '../components/TeamMenu';
 
-
-
-
+//Component that is a smaller version of the PokemonCard Component for the TeamMenu component
 export default function TeamCard({pokemon}) {
     const dispatch = useDispatch();
+
     //extract the pokemon_id from the pokemon's url
     //this id is used to get the pokemon's image
     let pokemon_url = pokemon.url.split('/');
     pokemon_url.pop();
     const pokemon_id = pokemon_url.pop();
 
-    //truncating the name for styling purposes
+    //truncating the name to keep it from being too long
     let truncatedName = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
     truncatedName = truncatedName.split('-')[0];
 

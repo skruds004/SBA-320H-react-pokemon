@@ -21,12 +21,12 @@ export default function PokemonListpage() {
   // }, [status, dispatch]);
 
   useEffect(() => {
-      dispatch(fetchPokemon(offset));
-  }, []);
+      dispatch(fetchPokemon(0));
+  }, [dispatch]);
 
   useEffect(() => {
     dispatch(fetchPokemon(offset));
-  }, [offset]);
+  }, [dispatch, offset]);
 
   if (status === "loading") {
     return (
@@ -40,11 +40,15 @@ export default function PokemonListpage() {
         </div>
       </div>);
   } else if (status === "failed") {
-    return (
-    <div>
-      <NavBar />
-      <h1>Error Loading Pokemon</h1>
-    </div>);
+    return  (
+      <div>
+        <NavBar />
+        <div className='main-container'>
+          <TeamMenu />
+          <h1 className='error'>Error loading Pokemon</h1>
+        </div>
+        
+      </div>);
   } else {
     return (
       <div>

@@ -1,5 +1,6 @@
 import React from 'react'
 
+//Spinner component used when fetching data
 export default function Spinner() {
   return (
     <div className='spinner-container'>

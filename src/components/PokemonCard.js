@@ -1,12 +1,11 @@
 import React from 'react'
-import { Dispatch } from 'react'
 import { addToTeam, fetchPokemonByName, setPokemon } from '../features/pokemonSlice'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom';
 
 
 
-
+//Component for displaying pokemon
 export default function PokemonCard({pokemon}) {
   
   const dispatch = useDispatch();
@@ -24,7 +23,8 @@ export default function PokemonCard({pokemon}) {
 
     return (
       <div className="pokemon-card" key={pokemon.name}>
-        {/* <div className='pokedex-circle'></div> */}
+        {/* To Be Implemented (Pokedex styling)
+         <div className='pokedex-circle'></div> */}
         <h3>{pokemon.name.charAt(0).toUpperCase()}{pokemon.name.slice(1)}</h3>
         <div className='image-container'>
           <img src={"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"+ pokemon_id + ".png"} alt={pokemon.name + " is not registered on this pokedex"}></img>
@@ -35,7 +35,6 @@ export default function PokemonCard({pokemon}) {
           dispatch(fetchPokemonByName(pokemon.name));
         }}>Pokemon Info</Link>
         <button className="add-button" onClick={() => {
-          //dispatch(setPokemon(pokemon));
           dispatch(addToTeam(pokemon))}}>
         +</button>
       </div>
