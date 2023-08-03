@@ -41,7 +41,7 @@ Every Team Card has a remove button to remove that Pokemon from your team
       may not be an efficient way to do this with Poke-API
 3. Use Localstorage to save team data and single pokemon data for descrption pages
 4. Be able to add held items to and change certain properties of your team Pokemon (shiny toggle, ability selection)
-5. Have description page still load description when refreshed, and put an addToTeam button on the description page
+5. Have description page still load description when refreshed, put an addToTeam button on the description page, and add styling to the description
 6. Possibly mess with the site styling (It has a bit of a ketchup and mustard sort of look)
 7. Style the Pokemon Cards to look more like a pokedex (original plan)
 8. Don't have another 3 day power outage (very important)
