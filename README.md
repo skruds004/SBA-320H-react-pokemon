@@ -1,7 +1,9 @@
-Netlify Link
+# Poke-Team React App
+
+## Netlify Link
 https://skruds004-poke-teams.netlify.app/
 
-#Technologies Used
+## Technologies Used
 React was used to create this application, using components to display data and state management to update components
 Redux was used to centralize the state management of the application and common actions like addToTeam and removeFromTeam are reducers
 Thunk Middleware is used to fetch data from the Poke-API into the store
@@ -29,7 +31,7 @@ Every Pokemon Card has an add button to add the Pokemon to your team (with 2 res
 larger than 6 Pokemon)
 Every Team Card has a remove button to remove that Pokemon from your team
 
-Features To Be Implemented:
+## Features To Be Implemented:
 1. A Team Page which displays the basic descriptions of each of your Pokemon
     - Additionally add some calculations to tell user what their team may need (type coverage, more attack, more defense, etc...)
 2. Clean up the search page
